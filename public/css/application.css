@@ -3,7 +3,46 @@
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+
 }
 th {
   text-align: left;
 }
+
+.authentication {
+  margin: 20px auto;
+  width: 800px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+  background-color: #382B1E;
+  border-radius: 10px;
+}
+
+.authentication li {
+  display: inline;
+  margin: 3px;
+  list-style-type: none;
+  font-family: 'Droid Serif', serif;
+}
+
+.authentication form {
+  display: inline;
+}
+
+.button {
+  border: none;
+  background-color: #BB9F8B;
+  border-radius: 4px;
+  padding: 6px 6px 6px 6px;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+.button:hover {
+  background-color: cyan;
+}
+
+.button:visited {
+  color: black;
+}
+
+/*http://twilightswarden.files.wordpress.com/2010/11/tigana-cover-american.jpg*/
