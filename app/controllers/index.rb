@@ -6,10 +6,14 @@ end
 
 get '/shorten/:short_url' do
   # go to info page about the found or created shorten link
+  @url = Url.find_by_short_url(params)
+  erb :url_info
 end
 
 post '/urls' do
   # create a new Url
+  @url = Url.create(params)
+  redirect ("/shorten/#{@url.short_url}")
 end
 
 # e.g., /q6bda

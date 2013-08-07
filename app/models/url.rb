@@ -1,20 +1,17 @@
 class Url < ActiveRecord::Base
   # Remember to create a migration!
-  validates :long_url, presence: true, url: true
-  
-  # class UrlValidator < ActiveModel::EachValidator
-  #   def validate_each(record, attribute, value)
-  #     unless starts_properly(attribute) && valid_uri(attribute)
-  #       record.errors[attribute] << (options[:message] || "is not a url")
-  #     end
-  #   end
+  validates :long_url, presence: true, url: true, uniqueness: true
+  validates :short_url, presence: true, uniqueness: true
 
-  #   def starts_properly(attribute)
-  #     attribute =~ /http:\/\// || attribute =~ /https:\/\//
-  #   end
+  before_validation :shorten_url
 
-  #   def valid_uri(attribute)
-  #     attribute =~ /^#{URI::regexp}$/
-  #   end
-  # end
+  def shorten_url
+    self.short_url = SecureRandom.urlsafe_base64(5)
+    # self.short_url = 7.times.map do
+    #                   num = rand(1..3)
+    #                   rand(0..9).to_s if num == 1
+    #                   (97 + rand(0..25)).chr if num == 2
+    #                   (65 + rand(0..25)).chr if num == 3
+    # end.join
+  end
 end
