@@ -14,4 +14,9 @@ class Url < ActiveRecord::Base
     #                   (65 + rand(0..25)).chr if num == 3
     # end.join
   end
+
+  def increment_click_count
+    self.click_count = click_count + 1
+    self.save
+  end
 end
