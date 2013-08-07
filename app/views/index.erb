@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Url Shortener</h1>
+  
+  <form action="/urls" method="post">
+    <input type="text" name="url" placeholder="paste a url">
+    <input type="submit" value="Shorten!!?!">
+  </form>
+
+  <ul>
+    <% @urls.each do |url| %>
+    <li><%= url.short_url %> - <%= url.long_url %> <span> <%= url.click_count %> </span></li>
+    <% end %>
+  </ul>
+
+</div>
