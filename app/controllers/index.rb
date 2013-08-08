@@ -1,6 +1,7 @@
 get '/' do
   # let user create new short URL, display a list of shortened URLs
   @urls = Url.all
+  @display = "_front_page"
   erb :index
 end
 
@@ -13,12 +14,17 @@ end
 post '/urls' do
   # create a new Url
   @url = Url.find_or_create_by_long_url(long_url: params[:url])
-  User.find(session[:user_id]).urls << @url if session[:user_id]
+  if session[:user_id]
+    user = User.find(session[:user_id])
+    user.urls << @url
+    user.save
+  end
   redirect ("/shorten/#{@url.short_url}")
 end
 
 get '/sign_up' do
-  erb :_sign_up
+  @display = "_sign_up"
+  erb :index
 end
 
 get '/sign_out' do

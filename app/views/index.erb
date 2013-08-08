@@ -1,55 +1,19 @@
- <div class="wrapper">
-  <div class="not-left">
-    <div class="authentication">
-      <ul>
-        <% unless session[:user_id] %>
-          <form action="/sign_in" method="post">
-            <li><input type="text" name="email" placeholder="Enter email"></li>
-            <li><input type="password" name="password" placeholder="Enter password"></li>
-            <li><input class="button" type="submit" value="Sign In">
-          </form>
-          <form action="/sign_up" method="get">
-            <li><input class="button" type="submit" value="Sign Up"></li>
-          </form>
-        <% else %>
-          <form action="/sign_out" method="get">
-            <li><input class="button" type="submit" value="Sign Out"></li>
-          </form>
-            <li>Hello, <%= User.find(session[:user_id]).name %></li>
-        <% end %>
-      </ul>  
-    </div>
+<div class="wrapper">
+  <div class="not-left"> 
 
-    <div class="container">
-      <h1>Url Shortener</h1>
+  <% user = User.find(session[:user_id]) if session[:user_id] %>
+
+  <%= CssHelper.authentication(user) %>
+
+  <%= erb @display.to_sym %>
   
-      <form action="/urls" method="post">
-        <input type="text" name="url" placeholder="paste a url">
-        <input class="button" type="submit" value="Shorten!!?!">
-      </form>
-
-      <ul>
-        <% @urls.each do |url| %>
-        <li><a href="/<%= url.short_url %>"><%= url.short_url %> - <%= url.long_url %></a><span> <%= url.click_count %> </span></li>
-        <% end %>
-      </ul>
-    </div>
   </div>
-  
-  <nav class="left-bar">
-    <div class="site_name">
-      <h2>URL.shortener</h2>
-    </div>
-    <div class="nav">
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-      </ul>
-    </div>
-  </nav>
+
+  <% links = [{display: "Sign Up", link: "/sign_up"},
+              {display: "2", link: "/"},
+              {display: "3", link: "/"}] %>
+
+  <%= CssHelper.nav_bar("URL.shorten", links) %>
 </div>
 
 
