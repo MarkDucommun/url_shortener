@@ -1,26 +1,34 @@
 .container {
-  margin: 20px auto;
-  width: 600px;
+  width: 75%;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
-
 }
 th {
   text-align: left;
 }
 
+a {
+  height: 2em;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #ecf0f1;
+}
+
+a:visited {
+
+}
+
 .authentication {
-  margin: 20px auto;
-  width: 800px;
-  padding: 0px 20px 20px 20px;
+  margin: auto;
+  width: 100%;
   border: 1px dotted black;
-  background-color: #382B1E;
-  border-radius: 10px;
+  background-color: #3498db;
 }
 
 .authentication li {
   display: inline;
-  margin: 3px;
   list-style-type: none;
   font-family: 'Droid Serif', serif;
 }
@@ -29,13 +37,18 @@ th {
   display: inline;
 }
 
+body {
+}
+
 .button {
+  height: 2em;
   border: none;
-  background-color: #BB9F8B;
-  border-radius: 4px;
-  padding: 6px 6px 6px 6px;
+  background-color: #27ae60;
+  border-radius: .2em;
+  padding: .3em .5em .3em .5em;
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
+  font-size: .9em;
 }
 .button:hover {
   background-color: cyan;
@@ -44,5 +57,74 @@ th {
 .button:visited {
   color: black;
 }
+
+h1 {
+
+}
+
+h2 {
+
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+html {
+  font-family: 'Raleway', sans-serif;
+  width: 100%;
+  height: 100%;
+  color: #2c3e50;
+}
+
+li {
+  list-style-type: none;
+  height: 2em;
+}
+
+.not-left {
+  width: 80%;
+  float: right;
+}
+
+.site_name {
+
+}
+
+nav {
+  background-color: #e74c3c;
+  margin: auto;
+  width: 20%;
+  height: 100%;
+  float: left;
+  position: fixed;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}
+
+ul {
+  padding-left: .4em;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
 
 /*http://twilightswarden.files.wordpress.com/2010/11/tigana-cover-american.jpg*/
