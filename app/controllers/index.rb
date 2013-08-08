@@ -13,7 +13,29 @@ end
 post '/urls' do
   # create a new Url
   @url = Url.find_or_create_by_long_url(long_url: params[:url])
+  User.find(session[:user_id]).urls << @url if session[:user_id]
   redirect ("/shorten/#{@url.short_url}")
+end
+
+get '/sign_up' do
+  erb :_sign_up
+end
+
+get '/sign_out' do
+  session.clear
+  redirect ('/')
+end
+
+post '/sign_in' do
+  @user = User.authenticate(params[:email], params[:password])
+  session[:user_id] = @user.id
+  redirect('/')
+end
+
+post '/sign_up' do
+  @user = User.new(params[:user])
+  @user.save!
+  redirect('/')
 end
 
 # e.g., /q6bda

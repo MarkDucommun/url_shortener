@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   validate :name, presence: true
   validate :password_hash, presence: true
 
+  has_many :url_to_users
+  has_many :urls, through: :url_to_users
+
   def self.authenticate(email, a_password)
     @user = self.find_by_email(email)
     puts @user.password
