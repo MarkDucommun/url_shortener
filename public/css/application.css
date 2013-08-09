@@ -37,6 +37,7 @@ article {
 .content_box {
   background-color: #6A4A3C;
   margin: 1.5em 0em;
+  border-radius: 0.3em;
 }
 
 .container {
@@ -221,7 +222,9 @@ a {
 }
 
 a:hover {
-  background-color: #ecf0f1;
+  /*background-color: #ecf0f1;*/
+  text-decoration: underline;
+  color: white;
 }
 
 a:visited {

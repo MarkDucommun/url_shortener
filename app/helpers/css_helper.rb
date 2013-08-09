@@ -1,6 +1,6 @@
 class CssHelper
 
-  def self.nav_bar(title, links, args*)
+  def self.nav_bar(title, links)
     nav = "<nav class='left-bar'>
             <div class='margins'>
               <div class='site_name'>
@@ -38,20 +38,20 @@ class CssHelper
     auth += "</ul></div>"
   end
 
-  # def self.paginator(num_elements, base_directory, current_page)
-  #   paginator = "<div class='pagination'>' "
-  #   paginator += "<a href='#{base_directory}/#{current_page}" if current_page ==  1
-  #   paginator += "<a href='#{base_directory}/#{current_page - 1}" unless current_page == 1
-  #   paginator += "'>Previous</a><ol>"
+  def self.paginator(num_elements, base_directory, current_page)
+    paginator = "<div class='pagination'>' "
+    paginator += "<a href='#{base_directory}/#{current_page}" if current_page ==  1
+    paginator += "<a href='#{base_directory}/#{current_page - 1}" unless current_page == 1
+    paginator += "'>Previous</a><ol>"
 
-  #   num_elements.times do |i|
-  #     paginator += "<li><a href='#{base_directory}/#{current_page + 1}'" 
-  #     paginator += " class='active'" if current_page == i + 1
-  #     paginator += "></a>#{current_page + 1}</li>"
-  #   end
+    num_elements.times do |i|
+      paginator += "<li><a href='#{base_directory}/#{current_page + 1}'" 
+      paginator += " class='active'" if current_page == i + 1
+      paginator += "></a>#{current_page + 1}</li>"
+    end
 
-  #   paginator += "</ol><a href='#{base_directory}/#{current_page}" if current_page ==  num_elements
-  #   paginator += "</ol><a href='#{base_directory}/#{current_page + 1}" unless current_page == num_elements
-  #   paginator += "'>Next</a></div>"
-  # end
+    paginator += "</ol><a href='#{base_directory}/#{current_page}" if current_page ==  num_elements
+    paginator += "</ol><a href='#{base_directory}/#{current_page + 1}" unless current_page == num_elements
+    paginator += "'>Next</a></div>"
+  end
 end
